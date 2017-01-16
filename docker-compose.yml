@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  mongo:
+    image: mongo
+    expose: 
+      - 27017
+  strider:
+    # image: mhdsyrwan/strider
+    build: .
+    environment:
+      VIRTUAL_HOST: 'strider.dev'
+      DB_URI: 'mongodb://mongo:27017/strider-testing'
+      NODE_ENV: production
